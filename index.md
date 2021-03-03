@@ -1,4 +1,4 @@
-## Welcome to *tangible*
+## *tangible*
 
 I will add somestuff here and see what happens.
 
