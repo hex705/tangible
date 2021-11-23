@@ -43,7 +43,7 @@ int returnASum(int val1, int val2){
   Serial.println(val2);
   
   Serial.print("sum to return = ");
-  Serial.println(sum);
+  Serial.println(fxnSum);
   Serial.println();
   
   return fxnSum; // return the calculated value. 
