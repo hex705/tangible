@@ -9,5 +9,5 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   Serial.println("loop");
-  while(1); // halut ( try uncommenting and rerun)
+  while(1); // hault ( try uncommenting and rerun)
 }
