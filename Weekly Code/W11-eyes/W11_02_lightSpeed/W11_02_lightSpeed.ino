@@ -1,5 +1,5 @@
-// W11_04
-// GOAL:: scared of dark
+// W11_02
+// GOAL:: lightspeed
 
 // set up variables for each motor wire
 // the number identifies to which PIN we connected
