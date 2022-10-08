@@ -111,6 +111,7 @@ Check out this simulation -- move the wire from pin 3 to each short yellow wire 
 
 <a href="https://www.tinkercad.com/things/ddzchuJPdsd-transistor-example/editel" target="_blank"><img src="transistor_grab.png" alt="image of transistor simulation"></a>
 
+Code from simulation.
 
 ````
 int transistorPin = 3;
