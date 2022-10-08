@@ -1,5 +1,10 @@
 # tangible code samples
-## W05 - Ananlog Out (AO) and motors.
+## W05 - Analog Out (AO) and motors.
+
+<a href="https://www.tinkercad.com/things/1a0Qo66PYfK-blink-rgb/editel" target="_blank"><img src="rgb_circuit.png" alt="image of rgb circuit"></a>
+
+[Also check the RGB post for setup.](https://tangiblemedia.ca/building-blocks/rgb-leds-so-much-color/)
+
 
 ### 00-RGB-blink-working
 
