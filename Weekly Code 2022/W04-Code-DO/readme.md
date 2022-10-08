@@ -1,6 +1,9 @@
 # tangible code samples
 ## W04 - digital outputs
 
+
+<a href="https://www.tinkercad.com/things/a3dbaJ6NeLn-blink-led/editel" target="_blank"><img src="ledBlink_circuit.png" alt="image of simple LED circuit"></a>
+
 ### 1-simpleBlink
 
 -- functionally identical to the example file from Arduino -- this code blinks an LED using *delay(x);*
