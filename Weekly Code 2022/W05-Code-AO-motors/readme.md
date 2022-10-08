@@ -109,7 +109,7 @@ And you can fade a motor (control its speed) with the same code that fades an LE
 
 Check out this simulation -- move the wire from pin 3 to each short yellow wire to see the various circuits activate.  Run the simulation for each circuit.
 
-<iframe width="725" height="453" src="https://www.tinkercad.com/embed/ddzchuJPdsd?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+[![image of transistor simulation](transistor_grab.png)](https://www.tinkercad.com/things/ddzchuJPdsd-transistor-example/editel)
 
 
 ````
