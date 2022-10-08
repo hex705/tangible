@@ -33,9 +33,17 @@ void loop() {
 
   // write the leds ON == 1, HIGH, 5V --- OFF = 0, LOW, Ground
   Serial.println("what color");
-  digitalWrite( rPin, OFF);
+  digitalWrite( rPin, ON);
   digitalWrite( gPin, OFF);
   digitalWrite( bPin, OFF);
+  // wait 1 second
+  delay(1000);
+
+  // write the leds ON == 1, HIGH, 5V --- OFF = 0, LOW, Ground
+  Serial.println("other color");
+  digitalWrite( rPin, OF);
+  digitalWrite( gPin, ON);
+  digitalWrite( bPin, ON);
   // wait 1 second
   delay(1000);
 

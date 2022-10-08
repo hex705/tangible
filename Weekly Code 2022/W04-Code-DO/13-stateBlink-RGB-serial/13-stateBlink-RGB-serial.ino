@@ -46,6 +46,18 @@ void loop() {
  digitalWrite( gPin, gSTATE);
  digitalWrite( bPin, bSTATE);
 
- //delay(1000);
+ delay(1000);
+
+ rSTATE = 0;
+ gSTATE = 1;
+ bSTATE = 0;
+
+ // write the leds
+ Serial.println("write leds");
+ digitalWrite( rPin, rSTATE);
+ digitalWrite( gPin, gSTATE);
+ digitalWrite( bPin, bSTATE);
+
+ delay(1000);
 
 }

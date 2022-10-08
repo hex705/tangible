@@ -26,7 +26,7 @@ STATE = 1 - STATE;
 
 ### 11-stateBlink-RGB-CLASS
 
--- this example CONTROLS an RGB LED - instead of a single color LED. Color is fixed.
+-- this example BLINKS an RGB LED, instead of a single color LED.
 
 -- we worked thru this in class.
 
