@@ -29,10 +29,10 @@ void setup() {
 }
 
 void loop (){
-  
+  // (1) get current reading
   currentButtonState = digitalRead( buttonPin ); // read button
 
-  // raising edge
+  // (2) compare -- look for raising edge
   // if the button IS pressed AND (&&) lastTime was NOT pressed   
   if ((currentButtonState == IS_PRESSED) && (lastButtonState == NOT_PRESSED)) { 
      
@@ -46,7 +46,7 @@ void loop (){
 
  
   digitalWrite(rLED, rLEDState);
-
+  // (3) Dear Diary .. store this loops reading for later
   lastButtonState = currentButtonState; // save this reading for next loop
 
   delay(5); // simple debounce - we will discuss in class. 
