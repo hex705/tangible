@@ -1,4 +1,4 @@
-// W07-03-DI- EDGE - only capture first press
+// W07-03-DI-singleButton-EDGE - only capture first press
 //
 // GOAL -- read only FIRST presses -- ignore button held down.
 // send that state over serial
