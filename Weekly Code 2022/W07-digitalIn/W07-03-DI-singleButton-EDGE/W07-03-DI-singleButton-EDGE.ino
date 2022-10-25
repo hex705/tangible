@@ -46,7 +46,7 @@ void loop (){
 
  
   digitalWrite(rLED, rLEDState);
-  // (3) Dear Diary .. store this loops reading for later
+  // (3) Dear Diary .. store this loop's reading for later
   lastButtonState = currentButtonState; // save this reading for next loop
 
   delay(5); // simple debounce - we will discuss in class. 
