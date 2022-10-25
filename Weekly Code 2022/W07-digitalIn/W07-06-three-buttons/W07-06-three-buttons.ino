@@ -91,7 +91,7 @@ void loop () {
       
       // released (falling edge) 
       if ((B1State == NOT_PRESSED) && (lastB1State == IS_PRESSED)) {
-        Serial.print("\n B1 released");
+        Serial.print("\t B1 released");
         allButtons -= 100;
       }
 
@@ -104,7 +104,7 @@ void loop () {
       } 
       // released (falling edge) 
       if ((B2State == NOT_PRESSED) && (lastB2State == IS_PRESSED)) {
-        Serial.print("\n B2 released");
+        Serial.print("\t B2 released");
         allButtons -= 10;
       }
 
@@ -117,65 +117,24 @@ void loop () {
       }
       // released (falling edge) 
       if ((B3State == NOT_PRESSED) && (lastB3State == IS_PRESSED)) {
-        Serial.print("\n B3 released");
+        Serial.print("\t B3 released");
         allButtons -= 1;
       }
 
-//  // if any buttons are pressed print out state of the three buttons
-//     Serial.print(B1State);
-//     Serial.print("\t");
-//     Serial.print(B2State);
-//     Serial.print("\t");
-//     Serial.print(B3State);
-//     
-//     Serial.print( "\t\t all buttons ==> ");
-//     Serial.println(allButtons);
+     // did VALUE of all buttons change?
+     if (allButtons != lastAllButtons){
+         Serial.print(B1State);
+         Serial.print("\t");
+         Serial.print(B2State);
+         Serial.print("\t");
+         Serial.print(B3State);
+         
+         Serial.print( "\t\t all buttons ==> ");
+         Serial.println(allButtons);
+     } // end if button change
 
 
-   // pcik an action
-   // switch...case
-   switch (allButtons) {
-    
-      case 111:  // 111 all pressed
-        Serial.println("111 - everything off"); 
-        ledsOff();
-        noTone(speakerPin);
-        break;
-       
-      case   1:  // 001 -- only right pressed 
-        Serial.println("001 -- blue higher tone");
-        ledsOff();
-        analogWrite(bLED,100);
-        tone(speakerPin, 500);
-        break;
-        
-      case  10: //010 -- only middle pressed
-        Serial.println("010 -- red midtone");
-        ledsOff();
-        analogWrite(gLED,100);
-        tone(speakerPin, 300);
-        break;
-      
-      case 100: //100 --  only left pressed
-        Serial.println("add behaviour here ");
-        break;
 
-      case 101:
-        Serial.println("add better stuff here");  
-        break;
-
-      // what other cases are there -- there are 2 more? 
-
-      case 000:
-        break;
-
-      default:
-        break;
-        
-        
-  
-    
-   }
 
   // write in your diary
   lastB1State = B1State; 
