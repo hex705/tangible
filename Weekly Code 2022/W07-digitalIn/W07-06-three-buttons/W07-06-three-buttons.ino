@@ -45,6 +45,7 @@ int bLED = 9;
 int bLEDState = 0; // now going to be analog
 
 int allButtons = 0; // hold all the buttons together
+int lastAllButtons = 0; 
 
 // compare variables
 boolean IS_PRESSED  = 1;
@@ -140,6 +141,8 @@ void loop () {
   lastB1State = B1State; 
   lastB2State = B2State;
   lastB3State = B3State;
+
+  lastAllButtons = allButtons;
   
   delay(30); // if this gets smaller -- then its harder to hit combinations
 
