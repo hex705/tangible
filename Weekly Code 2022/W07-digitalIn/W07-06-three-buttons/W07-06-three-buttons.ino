@@ -3,22 +3,17 @@
 // read 3 buttons independently -- first press only
 // act on button states in combination
 
-
 /*
- * 
  * 
  *   NOTE TONE (speaker) conflicts with (messes up) PWM (~) On pin 11 and 3
  *   
  *   if you want to use red led 
  *   need to move RED LED WIRE to pin 6 !!!
  * 
- *   this code uses pin 10 ( green led) 
- *   
+ *   this code uses pin 10 (green led) 
  *   
  */
 
-// GOAL -- detect both edges while reading a button
-// send that state over serial
 
 // button variables
 int B1Pin = 4 ;   // pin declare -- where is circuit ?
@@ -45,7 +40,7 @@ int bLED = 9;
 int bLEDState = 0; // now going to be analog
 
 int allButtons = 0; // hold all the buttons together
-int lastAllButtons = 0; 
+int lastAllButtons =0;
 
 // compare variables
 boolean IS_PRESSED  = 1;
@@ -78,21 +73,23 @@ void setup() {
 
 void loop () {
 
+  // read all the buttons 
   B1State = digitalRead( B1Pin ); // read button
   B2State = digitalRead( B2Pin ); // read button
   B3State = digitalRead( B3Pin ); // read button
 
+  // find raising and falling edges of all buttons
   // check B1 
       // pressed (raising edge) 
       // if the button IS pressed AND (&&) lastTime was NOT pressed
       if ((B1State == IS_PRESSED) && (lastB1State == NOT_PRESSED)) {
-        Serial.print("\n B1 pressed");
+        Serial.print("\n B1 PRESSED");
         allButtons += 100;
       }
       
       // released (falling edge) 
       if ((B1State == NOT_PRESSED) && (lastB1State == IS_PRESSED)) {
-        Serial.print("\t B1 released");
+        Serial.print("\n B1 released");
         allButtons -= 100;
       }
 
@@ -100,12 +97,12 @@ void loop () {
       // pressed (raising edge) 
       // if the button IS pressed AND (&&) lastTime was NOT pressed
       if ((B2State == IS_PRESSED) && (lastB2State == NOT_PRESSED)) {
-        Serial.print("\n B2 pressed");
+        Serial.print("\n B2 PRESSED");
         allButtons += 10;
       } 
       // released (falling edge) 
       if ((B2State == NOT_PRESSED) && (lastB2State == IS_PRESSED)) {
-        Serial.print("\t B2 released");
+        Serial.print("\n B2 released");
         allButtons -= 10;
       }
 
@@ -113,36 +110,34 @@ void loop () {
       // pressed (raising edge) 
       // if the button IS pressed AND (&&) lastTime was NOT pressed
       if ((B3State == IS_PRESSED) && (lastB3State == NOT_PRESSED)) {
-        Serial.print("\n B3 pressed");
+        Serial.print("\n B3 PRESSED");
         allButtons += 1;
       }
       // released (falling edge) 
       if ((B3State == NOT_PRESSED) && (lastB3State == IS_PRESSED)) {
-        Serial.print("\t B3 released");
+        Serial.print("\n B3 released");
         allButtons -= 1;
       }
-
-     // did VALUE of all buttons change?
-     if (allButtons != lastAllButtons){
-         Serial.print(B1State);
-         Serial.print("\t");
-         Serial.print(B2State);
-         Serial.print("\t");
-         Serial.print(B3State);
-         
-         Serial.print( "\t\t all buttons ==> ");
-         Serial.println(allButtons);
-     } // end if button change
-
-
+      
+    // did VALUE of allButtons change?
+       if (allButtons != lastAllButtons){
+           Serial.print("\t");
+           Serial.print(B1State);
+           Serial.print("\t");
+           Serial.print(B2State);
+           Serial.print("\t");
+           Serial.print(B3State);
+           
+           Serial.print( "\t all buttons ==> ");
+           Serial.println(allButtons);
+       } // end if button change
 
 
   // write in your diary
-  lastB1State = B1State; 
-  lastB2State = B2State;
-  lastB3State = B3State;
-
-  lastAllButtons = allButtons;
+    lastB1State = B1State; 
+    lastB2State = B2State;
+    lastB3State = B3State;
+    lastAllButtons = allButtons;
   
   delay(30); // if this gets smaller -- then its harder to hit combinations
 

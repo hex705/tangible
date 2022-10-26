@@ -1,24 +1,19 @@
-// W07-06- threeButtons
+// W07-07- threeButtons with switch...case
 
 // read 3 buttons independently -- first press only
 // act on button states in combination
 
-
 /*
- * 
  * 
  *   NOTE TONE (speaker) conflicts with (messes up) PWM (~) On pin 11 and 3
  *   
  *   if you want to use red led 
  *   need to move RED LED WIRE to pin 6 !!!
  * 
- *   this code uses pin 10 ( green led) 
- *   
+ *   this code uses pin 10 (green led) 
  *   
  */
 
-// GOAL -- detect both edges while reading a button
-// send that state over serial
 
 // button variables
 int B1Pin = 4 ;   // pin declare -- where is circuit ?
@@ -82,17 +77,19 @@ void loop () {
   B2State = digitalRead( B2Pin ); // read button
   B3State = digitalRead( B3Pin ); // read button
 
+  
+  // find raising and falling edges of all buttons
   // check B1 
       // pressed (raising edge) 
       // if the button IS pressed AND (&&) lastTime was NOT pressed
       if ((B1State == IS_PRESSED) && (lastB1State == NOT_PRESSED)) {
-        Serial.print("\n B1 pressed");
+        Serial.print("\n B1 PRESSED");
         allButtons += 100;
       }
       
       // released (falling edge) 
       if ((B1State == NOT_PRESSED) && (lastB1State == IS_PRESSED)) {
-        Serial.print("\n\t\t B1 released");
+        Serial.print("\n B1 released");
         allButtons -= 100;
       }
 
@@ -100,12 +97,12 @@ void loop () {
       // pressed (raising edge) 
       // if the button IS pressed AND (&&) lastTime was NOT pressed
       if ((B2State == IS_PRESSED) && (lastB2State == NOT_PRESSED)) {
-        Serial.print("\n B2 pressed");
+        Serial.print("\n B2 PRESSED");
         allButtons += 10;
       } 
       // released (falling edge) 
       if ((B2State == NOT_PRESSED) && (lastB2State == IS_PRESSED)) {
-        Serial.print("\n\t\t B2 released");
+        Serial.print("\n B2 released");
         allButtons -= 10;
       }
 
@@ -113,28 +110,40 @@ void loop () {
       // pressed (raising edge) 
       // if the button IS pressed AND (&&) lastTime was NOT pressed
       if ((B3State == IS_PRESSED) && (lastB3State == NOT_PRESSED)) {
-        Serial.print("\n B3 pressed");
+        Serial.print("\n B3 PRESSED");
         allButtons += 1;
       }
       // released (falling edge) 
       if ((B3State == NOT_PRESSED) && (lastB3State == IS_PRESSED)) {
-        Serial.print("\n\t\t B3 released");
+        Serial.print("\n B3 released");
         allButtons -= 1;
       }
-      
+
+    // did VALUE of all buttons change?
+    // debug the allButton state
+     if (allButtons != lastAllButtons){
+         Serial.print("\t");
+         Serial.print(B1State);
+         Serial.print("\t");
+         Serial.print(B2State);
+         Serial.print("\t");
+         Serial.print(B3State);
+         
+         Serial.print( "\t all buttons ==> ");
+         Serial.println(allButtons);
+     } // end if button change
 
    // did VALUE of all buttons change?
+   // take action 
    if (allButtons != lastAllButtons){    
-
-       // take action
-       // switch...case
+       // switch...case // https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/
        switch (allButtons) {
         
-          case 000: // none pressed
+          case 0:   // 000 none pressed
             // default do nothing
             break;
     
-          case 1:   //001 -- only right pressed
+          case 1:   // 001 -- only right pressed
             Serial.println("\n\t 001 -- cyan, freq = 300");
             ledsOff();
             analogWrite(gLED, 100);
@@ -143,11 +152,11 @@ void loop () {
             tone(speakerPin, 300);
             break;
     
-          case 10: // 010 -- only middle pressed
+          case 10:  // 010 -- only middle pressed
             Serial.println("\n\t add something here");
             break;
        
-          case 11: //011 -- middle and right pressed 
+          case 11:  // 011 -- middle and right pressed 
             Serial.println("\n\t 001 -- purple, freq = 500");
             ledsOff();
             analogWrite(bLED,30);
@@ -155,11 +164,14 @@ void loop () {
             tone(speakerPin, 500);
             break;
             
-          case 100: //100 -- only middle pressed
+          case 100: // 100 -- only left pressed
             Serial.println("\n\t add something here");
             break;
+
+            
     
           // there are 2 more cases -- what are they? 
+
           
           
           case 111:  // 111 all pressed
@@ -176,11 +188,11 @@ void loop () {
 
 
   // write in your diary
-  lastB1State = B1State; 
-  lastB2State = B2State;
-  lastB3State = B3State;
-  lastAllButtons = allButtons;
-  
+    lastB1State = B1State; 
+    lastB2State = B2State;
+    lastB3State = B3State;
+    lastAllButtons = allButtons;
+    
   delay(100); // play with this
               // smaller == harder to hit combinations 
               // bigger == less responsive
