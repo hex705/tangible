@@ -13,8 +13,8 @@ void setup() {
 void loop() {
   // get the current time and store it in a variable 
    currentTime = millis();
-
    Serial.println( currentTime );
+   
    
 //   if ( currentTime - startTime  >= eventInterval ) { // eventInterval = 1000
 //       Serial.print("\t time for an event :: ");  
