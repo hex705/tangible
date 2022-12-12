@@ -15,6 +15,9 @@ void setup() {
     LIS.setFullScaleRange(LIS3DHTR_RANGE_2G); //sensitivity
     LIS.setOutputDataRate(LIS3DHTR_DATARATE_50HZ); // data rate
     LIS.setHighSolution(true); //High solution enable
+
+
+    Serial.println("setup complete");
 }
 void loop() {
     if (!LIS) {

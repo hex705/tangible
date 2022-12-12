@@ -50,7 +50,7 @@ void loop() {
       // limit the range
       if (servoValue < servoLow)  servoValue = servoLow;
       if (servoValue > servoHigh) servoValue = servoHigh;
-      if (filteredValues >= 105) servoValue = 90; // stop servo when nothing in front of sensor
+      if (filteredValues >= 78) servoValue = 90; // stop servo when nothing in front of sensor
     
     // take action 
       continuous_360.write(servoValue);

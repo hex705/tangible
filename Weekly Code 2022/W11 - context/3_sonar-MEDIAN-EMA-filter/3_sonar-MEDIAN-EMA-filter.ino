@@ -1,5 +1,6 @@
 // basic sonar testing
-// function for averaging readings provided
+// Median and EMA -- combined
+// https://github.com/daPhoosa/MedianFilter
 
 #include <MedianFilter.h>
 #include <Ultrasonic.h>
@@ -14,7 +15,12 @@ int echopin = 13;//appoint echo pin
 
 Ultrasonic ultrasonic(trigpin,echopin); // create object
 
-int filteredValues;
+
+// filter variables 
+int   avgDistanceReading;
+int   medianFilteredValue;
+int   EMA         = 0;
+float EMAconstant = 0.1;
 
 void setup() {
   // put your setup code here, to run once:
@@ -23,14 +29,22 @@ void setup() {
 }
 
 void loop() {
-
-    int distanceReading = averageUltraSonic(2); // average (X) readings
-    medianValues.in(distanceReading);
-    filteredValues = medianValues.out();
+  
+    // get simple average of (X) distances
+    avgDistanceReading = averageUltraSonic(2); // average (X) readings
     
-    Serial.print( distanceReading ); 
+    // get median of distances
+    medianValues.in(avgDistanceReading);
+    medianFilteredValue = medianValues.out();
+
+    // get low pass -- or Exponential Moving Average
+    EMA = (int)(EMAconstant*medianFilteredValue) + ((1.0-EMAconstant)*EMA);
+    
+    Serial.print( avgDistanceReading ); 
     Serial.print('\t');
-    Serial.println(filteredValues);
+    Serial.print(medianFilteredValue);
+    Serial.print('\t');
+    Serial.println(EMA);
     delay(10);
 }
 
@@ -43,6 +57,7 @@ int averageUltraSonic( int howMany ){
   long dist = 0;
   for (int i = 0; i < howMany; i++){
       dist += ultrasonic.read();
+      delay(2);
   }
   return dist = (int) dist / howMany;
 }

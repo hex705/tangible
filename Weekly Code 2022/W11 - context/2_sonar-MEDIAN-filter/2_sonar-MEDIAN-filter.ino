@@ -1,19 +1,25 @@
-// basic sonar testing - filters 
-// exponential moving average (EMA), or low pass filter
+#include <MedianFilter.h>
+
+// basic sonar testing - filters
+// median filter -- excellent for removing spikes
+// https://github.com/daPhoosa/MedianFilter
 // https://www.norwegiancreations.com/2015/10/tutorial-potentiometers-with-arduino-and-filtering/
 
 
+#include <MedianFilter.h>
 #include <Ultrasonic.h>
+
+// filter variables
+MedianFilter medianValues(32, 0); // first value can be up to 255
+                                  // second value is a preset - i leave it zero
 
 //Ultra sonic sensor pin definitions
 int trigpin = 12;//appoint trigger pin
 int echopin = 13;//appoint echo pin
+
 Ultrasonic ultrasonic(trigpin,echopin); // create object
 
-// filter variables 
-int EMAValue    = 0;
-float EMAConstant = 0.1;
-
+int filteredValues;
 
 void setup() {
   // put your setup code here, to run once:
@@ -22,25 +28,26 @@ void setup() {
 }
 
 void loop() {
-  
+
     int distanceReading = averageUltraSonic(2); // average (X) readings
-    EMAValue = (int)(EMAConstant*distanceReading) + ((1.0-EMAConstant)*EMAValue);
+    medianValues.in(distanceReading);
+    filteredValues = medianValues.out();
+    
     Serial.print( distanceReading ); 
     Serial.print('\t');
-    Serial.println(EMAValue);
+    Serial.println(filteredValues);
     delay(10);
-    
 }
 
 
 // this function reads the distance 'howMany' times
 // it then returns the average of those readings
+// 
 
 int averageUltraSonic( int howMany ){
   long dist = 0;
   for (int i = 0; i < howMany; i++){
       dist += ultrasonic.read();
-      delay(2);
   }
   return dist = (int) dist / howMany;
 }
