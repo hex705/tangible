@@ -80,6 +80,11 @@ void loop() {
   loopCounter++; 
 }
 
+
+// **************   function:: set leds   *********************
+// function that sets 3 LEDs to state (ON/OFF)
+// function also debugs the states
+
 void setLeds(int state1, int state2, int state3){
 
   // ***********   write the LEDs  *****************
