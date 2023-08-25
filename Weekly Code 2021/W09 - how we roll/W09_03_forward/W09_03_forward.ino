@@ -1,4 +1,4 @@
-// W09_03_forward
+// W04_02_forward
 
 const int green  = ? ; // change the '?' to pin numbers
 const int blue   = ? ; //
