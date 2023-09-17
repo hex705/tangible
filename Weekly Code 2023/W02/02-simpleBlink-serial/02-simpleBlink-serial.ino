@@ -3,14 +3,6 @@
 // serial is used to display messages in the *SERIAL MONITOR*
 
 
-/* pattern
-
-        LOOP-1            LOOP-1          LOOP-2            LOOP-2         
-        CONDITION_1       CONDITION-2     CONDITION_1       CONDITION-2
-LED_1     ON              OFF             ON                OFF
-
-*/
-
 
 // led PINs
 int ledPin = 5;
@@ -27,19 +19,19 @@ void setup() {
 
   // start serial
   Serial.begin(9600);
-  Serial.println(__FILE__);
+  Serial.println(__FILE__); // print file name 
 }
 
 void loop() {
   
-  // put your main code here, to run repeatedly:
-  Serial.println("loop");
+      // put your main code here, to run repeatedly:
+      Serial.println("loop");
 
   // write ledPIN HIGH - LED ON
   digitalWrite(ledPin, ON);// ON == 1 == HIGH ==> 5V 
 
-    // print led state 
-    Serial.println("  LED ON");
+      // print led state 
+      Serial.println("  LED ON");
 
   // wait 1 second
   delay(1000);
@@ -47,8 +39,8 @@ void loop() {
   // write ledPIN LOW -- LED OFF
   digitalWrite(ledPin, OFF);// OFF == 0 == LOW ==> 0V(GND) 
 
-    // print led state 
-    Serial.println("  LED ON");
+      // print led state 
+      Serial.println("  LED OFF");
     
   // wait 1 second
   delay(1000);
