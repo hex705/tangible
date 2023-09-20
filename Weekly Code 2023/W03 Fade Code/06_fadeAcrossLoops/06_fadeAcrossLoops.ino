@@ -10,9 +10,9 @@ int greenLed = 5;
 int blueLed  = 6;
 
 // color channel Variables
-  int myRedValue   = 0;
-  int myGreenValue = 0;
-  int myBlueValue  = 0;
+int redValue   = 0;
+int greenValue = 0;
+int blueValue  = 0;
 
 // utility variables 
 int loopCounter = 0; 
@@ -39,18 +39,17 @@ void loop() {
   Serial.println(loopCounter);
 
   // *** define the color ***
-  myRedValue   = colorStepCounter;
-  myGreenValue = 0;
-  myBlueValue  = 255 - colorStepCounter;
+  redValue   = colorStepCounter;
+  greenValue = 0; // not used in example
+  blueValue  = 255 - colorStepCounter;
 
   // call FXN to set color
-  setRGB (myRedValue, myGreenValue, myBlueValue);
+  setRGB (redValue, greenValue, blueValue);
 
   // call FXN to print color
   printRGB();
 
   // color step counter
-  
   colorStepCounter += colorIncrement;
 
   // if at top of stairs, change direction to negative
@@ -86,11 +85,11 @@ void setRGB (int setRed, int setGreen, int setBlue){
 void printRGB (){
   // *** print color ***
   Serial.print("\t red, green, blue =\t" );
-    Serial.print(myRedValue);
+    Serial.print(redValue);
   Serial.print(",\t");
-    Serial.print(myGreenValue);
+    Serial.print(greenValue);
   Serial.print(",\t");
-    Serial.print(myBlueValue);
+    Serial.print(blueValue);
 
     if ( colorIncrement > 0) {
        Serial.println("\tCounter going up.\n");  

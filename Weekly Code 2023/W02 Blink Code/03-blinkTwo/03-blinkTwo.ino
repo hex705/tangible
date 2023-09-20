@@ -38,7 +38,7 @@ void loop() {
   digitalWrite(ledPin_2, OFF);  // OFF = 0
 
      // print led state 
-     Serial.println("  LEDs-> ON , OFF");
+     Serial.println("  LEDs-> ON,  OFF");
       
   // *********** delay - determines how long we see pattern 1
   delay ( 1000 ); 

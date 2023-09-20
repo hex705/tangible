@@ -34,11 +34,11 @@ void loop() {
   int myBlueValue  = 0;
 
   // *** print color ***
-  Serial.print("red   =\t" );
+  Serial.print("  red   =\t" );
     Serial.println(myRedValue);
-  Serial.print("green =\t");
+  Serial.print("  green =\t");
     Serial.println(myGreenValue);
-  Serial.print("blue  =\t");
+  Serial.print("  blue  =\t");
     Serial.println(myBlueValue);
 
   //  *** set color ***
@@ -51,7 +51,7 @@ void loop() {
   // you don't *NEED* it in your programs
   loopCounter++; 
 
-  while(1); // trick to stop you code from looping
+  while(1); // trick to stop your code from looping
 
 }
 

@@ -41,7 +41,7 @@ void loop() {
   digitalWrite(ledPin_3, OFF);
  
   // ***********   print LED states side by side  *****************    
-  Serial.print("  LEDs-> ON, OFF, OFF ");
+  Serial.println("  LEDs-> ON,  OFF, OFF ");
    
   // ***********   determine the delay - they blink at same time   *****************
   delay(1000);
@@ -56,7 +56,7 @@ void loop() {
   digitalWrite(ledPin_3, OFF);
  
   // ***********   print LED states side by side  *****************    
-  Serial.print("  LEDs-> OFF, ON, OFF ");
+  Serial.println("  LEDs-> OFF, ON,  OFF ");
 
   // ***********   determine the delay - they blink at same time   *****************
   delay(1000);
@@ -71,7 +71,7 @@ void loop() {
   digitalWrite(ledPin_3, ON);
  
   // ***********   print LED states side by side  *****************    
-  Serial.print("  LEDs-> OFF, OFF, ON ");
+  Serial.println("  LEDs-> OFF, OFF, ON ");
   
   // ***********   determine the delay - they blink at same time   *****************
   delay(1000);

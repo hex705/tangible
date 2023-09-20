@@ -39,7 +39,7 @@ void loop() {
   }
 
   // fade red down
-  //                 START              STOP         STEP = 1
+  //                 START              STOP         STEP = -1
   for(int brightness = 255 ; brightness >= 0; brightness-=1){  // note stop SIGN changed to > (greater than) or equal
     analogWrite(redLed, brightness);
       Serial.print("   down - brightness = ");

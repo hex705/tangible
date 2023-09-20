@@ -44,9 +44,9 @@ void loop() {
   Serial.println(loopCounter);
 
   // *** define your own color ***
-  myRedValue = 10;
-  myGreenValue = 20;
-  myBlueValue = 30;
+  myRedValue = 1;
+  myGreenValue = 2;
+  myBlueValue = 3;
 
   // call FXN to set color
   setRGB(myRedValue, myGreenValue, myBlueValue);
@@ -73,10 +73,10 @@ void setRGB(int setRed, int setGreen, int setBlue) {
 // FXN to print the colors selected by user above.
 void printRGB() {
   // *** print color ***
-  Serial.print("red   =\t");
+  Serial.print("  red   =\t");
   Serial.println(myRedValue);
-  Serial.print("green =\t");
+  Serial.print("  green =\t");
   Serial.println(myGreenValue);
-  Serial.print("blue  =\t");
+  Serial.print("  blue  =\t");
   Serial.println(myBlueValue);
 }
