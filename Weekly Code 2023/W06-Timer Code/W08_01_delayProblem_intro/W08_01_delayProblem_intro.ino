@@ -26,23 +26,23 @@ void loop() {
   // then uncomment and run again
 
   // toggles the led state -- but BLOCKS loop
-//      ledState = 1 - ledState;         // toggle LED
-//      digitalWrite(ledPin, ledState);  // write to LED
-//      printLEDState();                 // print out LED state
-//      delay(1000);                     // delay 1 second for blink
+           ledState = 1 - ledState;         // toggle LED
+           digitalWrite(ledPin, ledState);  // write to LED
+           printLEDState();                 // print out LED state
+           delay(1000);                     // delay 1 second for blink
 
  Serial.println();
 }
 
 
 
-
 void printLEDState() {
+
   // the led range is 0,1 the button is also 0,1
   // on the plotter they overlap visually
   // we can move the LED UP by adding the shift variable.
   
-  int shift = 3; // move the LED above the botton on display
+  int shift = 3; // move the LED above the bottom of display
   // output the state to monitor
   Serial.print("\t");
   if (ledState == 1) {
