@@ -1,11 +1,12 @@
-// W08_03_delayProblem_timerSolution
+// W06-09-delayProblem_timerSolution
 // open serial PLOTTER once code is uploaded
 
-// need button circuit on pin 6, led on pin 13
-int buttonPin = 6;
+// need button circuit on pin 2, led on pin 11
+int buttonPin = 2;
 int buttonState = 0;
 
-int ledPin = 13;
+// led variables
+int ledPin = 11;
 int ledState = 0;
 
 // timer variables
@@ -17,7 +18,8 @@ unsigned long ledBlink_Start = 0;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  while (!Serial);
+  // next line is for testing only - NOT in production
+  while (!Serial); // have to open the serial MONITOR or PLOTTER to get past this line 
   pinMode(buttonPin, INPUT);
   pinMode(ledPin,    OUTPUT);
 }
@@ -28,6 +30,7 @@ void loop() {
 
   // read the button
   buttonState = digitalRead( buttonPin );
+  Serial.print ("button = ");
   Serial.print ( buttonState );
   Serial.print ('\t');
 
@@ -42,33 +45,31 @@ void loop() {
 
 
 //    // ***** timer solution *****
-//       timeNow = millis();
-//    
-//       // NOTE::  timeNow - ledBlink_Start == elapsed time
-//       if ( timeNow - ledBlink_Start  > ledBlink_Interval ) {
-//          ledState = 1 - ledState;             // toggle LED
-//          ledBlink_Start += ledBlink_Interval; // reset timer
-//       }
-//    
-//      digitalWrite(ledPin, ledState); // write to LED
-//      printLEDState();                // print out LED state
+    //   timeNow = millis();
+   
+    //   // NOTE::  timeNow - ledBlink_Start == elapsed time
+    //   if ( timeNow - ledBlink_Start  > ledBlink_Interval ) {
+    //      ledState = 1 - ledState;             // toggle LED
+    //      ledBlink_Start += ledBlink_Interval; // reset timer
+    //   }
+   
+    //  digitalWrite(ledPin, ledState); // write to LED
+    //  printLEDState();                // print out LED state
 //    // ***** end timer solution *****
   
-
-
   Serial.println();
 }
 
 
 
 void printLEDState() {
-  int shift = 3; // move the LED above the botton on display
+  //int shift = 0; // move the LED above the botton on display
   // output the state to monitor
   if (ledState == 1) {
-    //Serial.print("\tLED HIGH\t");
-    Serial.print(1 + shift);
+    Serial.print("LED HIGH\t");
+    //Serial.print(1 + shift);
   } else {
-    //Serial.print("\tLED LOW\t");
-    Serial.print(0 + shift);
+    Serial.print("LED LOW\t");
+    //Serial.print(0 + shift);
   }
 }
