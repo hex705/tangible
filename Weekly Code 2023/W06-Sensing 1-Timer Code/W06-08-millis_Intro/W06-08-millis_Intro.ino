@@ -21,11 +21,11 @@ void loop() {
 
   // basic timer
   // run with block below commented an uncommented    
-      if ( currentTime - startTime  >= eventInterval ) { // eventInterval = 1000
-          Serial.print("\t time for an event :: ");  
-          Serial.println(currentTime);
-          startTime += eventInterval;
-      } // end if 
+      // if ( currentTime - startTime  >= eventInterval ) { // eventInterval = 1000
+      //     Serial.print("\t time for an event :: ");  
+      //     Serial.println(currentTime);
+      //     startTime += eventInterval;
+      // } // end if 
       
 }
 
