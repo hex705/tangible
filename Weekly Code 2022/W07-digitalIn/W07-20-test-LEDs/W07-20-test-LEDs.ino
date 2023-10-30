@@ -10,7 +10,7 @@
  *  green analog fade -- 0-150
  *  blue  analog fade -- 0-200
  *  
- *  led goes off breifly at end of each fade. 
+ *  led goes off briefly at end of each fade. 
  */
 
 
