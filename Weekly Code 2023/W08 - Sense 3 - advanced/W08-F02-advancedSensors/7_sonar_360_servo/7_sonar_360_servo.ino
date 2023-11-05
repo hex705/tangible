@@ -29,6 +29,9 @@ int sonarHigh = 100;
 int servoLow = 0;
 int servoHigh = 180;
 
+// threshold to stop servo 
+int threshold = 75;
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -52,14 +55,22 @@ void loop() {
       // limit the range
       if (servoValue < servoLow)  servoValue = servoLow;
       if (servoValue > servoHigh) servoValue = servoHigh;
-      if (filteredValues >= 78) servoValue = 90; // stop servo when nothing in front of sensor
+      if (filteredValues >= threshold) servoValue = 90; // stop servo when nothing in front of sensor
     
     // take action 
       continuous_360.write(servoValue);
+
+      // new plotter uses colon <:> for parsing !?
+      Serial.print( "threshold:" ); // label, colon matters ?
+      Serial.print( threshold );    // data
+      Serial.print('\t');           // tab 
+      Serial.print( "raw:" ); 
       Serial.print( distanceReading ); 
       Serial.print('\t');
+      Serial.print( "servo POS:" ); 
       Serial.print( servoValue ); 
       Serial.print('\t');
+      Serial.print( "MEDIAN:" ); 
       Serial.println(filteredValues);
 
 }

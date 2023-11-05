@@ -24,7 +24,7 @@ int servoHigh = 180;
 
 void setup() {
     Serial.begin(115200); // NOTE !!!!!!! - change your plotter/monitor
-    while (!Serial) {};
+    while (!Serial) {}; // testing only it blocks - not for crit
 
     // accel setup 
     LIS.begin(WIRE, 0x19); //I2C init --0x19 for Uno

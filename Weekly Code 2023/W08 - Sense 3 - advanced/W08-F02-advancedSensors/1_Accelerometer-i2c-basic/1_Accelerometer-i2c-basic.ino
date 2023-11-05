@@ -1,5 +1,7 @@
 // Simplified example -- see video for details.
 // This example shows the 3 axis acceleration.
+
+//you need all four  of these declarations
 #include "LIS3DHTR.h"
 #include <Wire.h>
 LIS3DHTR<TwoWire> LIS; //IIC
@@ -11,7 +13,7 @@ void setup() {
     Serial.begin(115200); // change plotter or serial monitor
     while (!Serial) {}; // for testing not production - this BLOCKS forever is no serial
     
-    // variables you need to accellerometer
+    // variables you need to init accellerometer
     LIS.begin(WIRE, 0x19); //IIC init 
     delay(100); // give it a moment to start
     
