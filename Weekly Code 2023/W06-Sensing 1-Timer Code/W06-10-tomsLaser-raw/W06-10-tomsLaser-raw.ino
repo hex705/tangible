@@ -1,7 +1,7 @@
 
 // from Tom Igoe examples
 // tom is a founder of arduino
-// tom is an advisor and foriend of the program
+// tom is an advisor and friend of the program
 
 // original link:
 // https://github.com/ITPNYU/physcomp/blob/main/F2013Section1Igoe/ButtonLaserShootyNoise/ButtonLaserShootyNoise.ino

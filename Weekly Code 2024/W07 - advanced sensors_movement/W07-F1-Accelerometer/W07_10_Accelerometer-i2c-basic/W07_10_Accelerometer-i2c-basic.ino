@@ -7,11 +7,16 @@
 LIS3DHTR<TwoWire> LIS; //IIC
 #define WIRE Wire
 
+//#define I2C_SDA 23
+//#define I2C_SCL 22
+
+
 void setup() {
 
   // woah! look at the BAUD rate
     Serial.begin(115200); // change plotter or serial monitor
-    while (!Serial) {}; // for testing not production - this BLOCKS forever is no serial
+    Serial.println("setup");
+    while (!Serial) {}; // for testing not production - this BLOCKS forever if no serial port opened!!!!
     
     // variables you need to init accellerometer
     LIS.begin(WIRE, 0x19); //IIC init 

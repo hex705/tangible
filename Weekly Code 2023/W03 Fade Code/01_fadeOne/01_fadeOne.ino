@@ -32,7 +32,7 @@ void loop() {
   //                 START              STOP         STEP = 1
   for(int brightness = 0 ; brightness <= 255; brightness+=1){ 
 
-    analogWrite(redLed, brightness);     // STATE + BRIGHTNESS
+    analogWrite(redLed, brightness);     // STATE = BRIGHTNESS
       Serial.print("   brightness = ");
       Serial.println(brightness);
     delay(25);

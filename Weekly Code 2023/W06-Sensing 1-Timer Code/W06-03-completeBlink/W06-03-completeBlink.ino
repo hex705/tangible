@@ -3,7 +3,7 @@
 // serial is used to display messages in the *SERIAL MONITOR*
 
 // led PINs
-int ledPin = 11;
+int ledPin = 6;
 
 // led states
 boolean ON = 1;

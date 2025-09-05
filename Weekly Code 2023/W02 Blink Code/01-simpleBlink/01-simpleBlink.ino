@@ -1,14 +1,12 @@
 // simple LED blink 
 // state changes happen within each loop 
 
-
 // led PINs
 int ledPin = 5;
 
 // led states
 boolean ON = 1;
 boolean OFF = 0;
-
 
 void setup() {
   // put your setup code here, to run once:
